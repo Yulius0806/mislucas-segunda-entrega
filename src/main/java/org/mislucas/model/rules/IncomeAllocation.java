@@ -5,11 +5,11 @@ import org.mislucas.model.game.JarType;
 import org.mislucas.model.game.Money;
 
 /**
- * Distributes an allowance or opportunity income among the three jars of a game.
+ * Distribuye una mesada o un ingreso por oportunidad entre los tres frascos de la partida.
  */
 public final class IncomeAllocation {
     /**
-     * Required increment for each allocation, in Colombian pesos.
+     * Incremento requerido para cada distribución, en pesos colombianos.
      */
     private static final int ALLOCATION_INCREMENT = 1_000;
 
@@ -18,13 +18,13 @@ public final class IncomeAllocation {
     private final Jar cushion;
 
     /**
-     * Binds the allocation rule to the jars that will receive the income.
+     * Asocia la regla de distribución con los frascos que recibirán el ingreso.
      *
-     * @param spending the spending jar
-     * @param goal the goal jar
-     * @param cushion the cushion jar
-     * @throws NullPointerException if a jar is null
-     * @throws IllegalArgumentException if a jar has a different type than required
+     * @param spending frasco Para gastar
+     * @param goal frasco Mi meta
+     * @param cushion frasco Colchón
+     * @throws NullPointerException si algún frasco es nulo
+     * @throws IllegalArgumentException si algún frasco no tiene el tipo requerido
      */
     public IncomeAllocation(Jar spending, Jar goal, Jar cushion) {
         if (spending.type() != JarType.SPENDING
@@ -39,17 +39,17 @@ public final class IncomeAllocation {
     }
 
     /**
-     * Deposits a complete allocation after validating all amounts and resulting balances.
-     * Every jar retains its balance if validation fails.
+     * Abona la distribución completa después de validar las cantidades y los saldos resultantes.
+     * Si la validación falla, cada frasco conserva su saldo.
      *
-     * @param income the full income to allocate
-     * @param spendingAmount the amount to deposit into the spending jar
-     * @param goalAmount the amount to deposit into the goal jar
-     * @param cushionAmount the amount to deposit into the cushion jar
-     * @throws NullPointerException if an amount is null
-     * @throws IllegalArgumentException if an allocation is outside the required increment
-     *     or the amounts do not add up to the income
-     * @throws ArithmeticException if a resulting balance exceeds the integer range
+     * @param income ingreso total que se va a distribuir
+     * @param spendingAmount cantidad que se abonará al frasco Para gastar
+     * @param goalAmount cantidad que se abonará al frasco Mi meta
+     * @param cushionAmount cantidad que se abonará al frasco Colchón
+     * @throws NullPointerException si alguna cantidad es nula
+     * @throws IllegalArgumentException si una cantidad no respeta el incremento requerido
+     *     o si las cantidades no suman el total del ingreso
+     * @throws ArithmeticException si un saldo resultante supera el rango de enteros
      */
     public void apply(Money income, Money spendingAmount, Money goalAmount, Money cushionAmount) {
         int spendingPesos = spendingAmount.pesos();
@@ -67,7 +67,7 @@ public final class IncomeAllocation {
             throw new IllegalArgumentException("Allocate the full income among the three jars.");
         }
 
-        // Check every resulting balance before depositing into the first jar.
+        // Verifica cada saldo resultante antes de abonar dinero al primer frasco.
         Math.addExact(spending.balance().pesos(), spendingPesos);
         Math.addExact(goal.balance().pesos(), goalPesos);
         Math.addExact(cushion.balance().pesos(), cushionPesos);

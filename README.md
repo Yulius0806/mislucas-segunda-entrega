@@ -1,35 +1,35 @@
 # Mis Lucas
 
-Mis Lucas is an educational financial management game for teenagers aged 12 to 16. During a single-player, eight-week game, the player allocates fictional weekly allowances among three jars, responds to expenses and opportunities, and works toward a savings goal. Amounts are simulated in Colombian pesos.
+Mis Lucas es un juego educativo de gestión financiera para adolescentes de 12 a 16 años. En una partida individual de ocho semanas, el jugador distribuye su mesada ficticia entre tres frascos, responde a gastos y oportunidades, y trabaja para alcanzar una meta de ahorro. Los valores se simulan en pesos colombianos.
 
-The game is developed for the Programming Paradigms course at Politécnico Grancolombiano. The second submission covers the object-oriented model, business rules, JUnit tests, and generated Javadoc. The JavaFX desktop interface belongs to the third submission.
+El juego se desarrolla para la asignatura Paradigmas de Programación del Politécnico Grancolombiano. La segunda entrega comprende el modelo orientado a objetos, las reglas de negocio, las pruebas con JUnit y la documentación generada con Javadoc. La interfaz de escritorio con JavaFX corresponde a la tercera entrega.
 
-## Implementation reference
+## Guía de implementación
 
-- [Documentation guide](docs/README.md): scope and reading order.
-- [Game, actor, and flow](docs/game.md): player actions and system behavior.
-- [Business rules](docs/rules.md): amounts, weekly sequence, credit, and outcome.
-- [Proposed model](docs/model.md): class responsibilities and boundaries.
-- [Mis Lucas GitHub Project](https://github.com/users/camarinb2096/projects/1): team tasks and progress.
+- [Guía de documentación](docs/README.md): alcance y orden de lectura.
+- [Juego, actor y flujo](docs/game.md): acciones del jugador y comportamiento del sistema.
+- [Reglas de negocio](docs/rules.md): valores, secuencia semanal, crédito y resultado.
+- [Modelo propuesto](docs/model.md): responsabilidades y límites de las clases.
+- [Tablero de Mis Lucas en GitHub](https://github.com/users/camarinb2096/projects/1): tareas y progreso del equipo.
 
-The documented rules are the reference for implementing and testing the model. Any rule change should update `docs/rules.md` and its related tests.
+Las reglas documentadas son la referencia para implementar y probar el modelo. Todo cambio en una regla debe reflejarse en `docs/rules.md` y en las pruebas relacionadas.
 
-## Stack and current submission
+## Tecnologías y entrega actual
 
-Java 21, Maven, and JUnit 5. The game logic must run and be testable without JavaFX. The academic submission window is **November 21–24, 2026**.
+Java 21, Maven y JUnit 5. La lógica del juego debe ejecutarse y probarse sin JavaFX. El periodo académico de entrega es del **21 al 24 de noviembre de 2026**.
 
-## Architecture
+## Arquitectura
 
-Mis Lucas uses a single Maven module. The second submission implements the model in `org.mislucas.model`, with subpackages for configuration, game state, events, rules, and results. The third submission will complete the Model–View–Controller (MVC) structure with JavaFX. Controllers will pass player actions to the model, and views will display the resulting state and feedback. The model owns the game rules and can be tested independently of JavaFX. See the [model design](docs/model.md) for package responsibilities.
+Mis Lucas usa un único módulo Maven. En la segunda entrega, el modelo se implementa en `org.mislucas.model`, con subpaquetes para configuración, estado del juego, eventos, reglas y resultados. En la tercera entrega se completará la estructura Modelo–Vista–Controlador (MVC) con JavaFX. Los controladores enviarán las acciones del jugador al modelo y las vistas mostrarán el estado y la retroalimentación. El modelo contiene las reglas del juego y puede probarse de forma independiente de JavaFX. Consulta el [diseño del modelo](docs/model.md) para conocer las responsabilidades de cada paquete.
 
-## Build and verification
+## Compilación y verificación
 
-Install JDK 21 and Maven 3.6.3 or newer, and ensure `JAVA_HOME` points to the JDK. Check the active versions with `java -version` and `mvn -version`. Maven downloads the project dependencies and plugins on the first build.
+Instala JDK 21 y Maven 3.6.3 o posterior, y verifica que `JAVA_HOME` apunte al JDK. Consulta las versiones activas con `java -version` y `mvn -version`. Maven descargará las dependencias y los complementos del proyecto durante la primera compilación.
 
 ```sh
-mvn test             # Compile and run the JUnit 5 tests
-mvn clean test       # Repeat the verification from a clean build
-mvn javadoc:javadoc  # Generate documentation in target/site/apidocs
+mvn test             # Compila y ejecuta las pruebas de JUnit 5
+mvn clean test       # Repite la verificación desde una compilación limpia
+mvn javadoc:javadoc  # Genera la documentación en target/site/apidocs
 ```
 
-Production code belongs in `src/main/java` and tests in `src/test/java`.
+El código de producción va en `src/main/java` y las pruebas en `src/test/java`.

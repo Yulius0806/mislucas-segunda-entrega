@@ -1,4 +1,4 @@
 /**
- * Cards and other events encountered during a game.
+ * Tarjetas y otros eventos que aparecen durante una partida.
  */
 package org.mislucas.model.events;

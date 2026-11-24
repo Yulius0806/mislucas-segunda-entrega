@@ -1,27 +1,27 @@
-# Repository Guidelines
+# Guía para contribuir al repositorio
 
-## Project Structure & Module Organization
+## Estructura del proyecto y módulos
 
-The repository contains the project overview in `README.md` and the game specification in `docs/`. Read `docs/game.md`, `docs/rules.md`, and `docs/model.md` before changing behavior. The single Maven module places production Java in `src/main/java` and JUnit tests in `src/test/java`. Place game state and financial rules under `org.mislucas.model` and mirror its packages in domain tests. The third submission adds JavaFX views and controllers, with assets in `src/main/resources`.
+La descripción general del proyecto está en `README.md` y la especificación del juego está en `docs/`. Antes de cambiar el comportamiento, lee `docs/game.md`, `docs/rules.md` y `docs/model.md`. El único módulo Maven contiene el código Java de producción en `src/main/java` y las pruebas con JUnit en `src/test/java`. Ubica el estado del juego y las reglas financieras en `org.mislucas.model`; usa paquetes equivalentes para las pruebas del dominio. La tercera entrega añadirá las vistas y los controladores JavaFX, con recursos en `src/main/resources`.
 
-## Build, Test, and Development Commands
+## Comandos de compilación, pruebas y desarrollo
 
-Use the following commands from the Maven module root.
+Ejecuta estos comandos desde la carpeta raíz del módulo Maven.
 
-- `mvn test` — compile the model and run JUnit 5 tests.
-- `mvn clean test` — verify the project from a clean build.
-- `mvn javadoc:javadoc` — generate the Javadoc files required for submission.
+- `mvn test` — compila el modelo y ejecuta las pruebas con JUnit 5.
+- `mvn clean test` — verifica el proyecto desde una compilación limpia.
+- `mvn javadoc:javadoc` — genera los archivos Javadoc requeridos para la entrega.
 
-Use JDK 21. Do not add a JavaFX run command until an application entry point exists.
+Usa JDK 21. No agregues un comando para ejecutar JavaFX hasta que exista un punto de entrada de la aplicación.
 
-## Coding Style & Naming Conventions
+## Estilo de código y convenciones de nombres
 
-Use four spaces for Java indentation, one public top-level type per file, `PascalCase` for classes, `camelCase` for methods and fields, and `UPPER_SNAKE_CASE` for constants. Store money as integer Colombian pesos; do not use `double` for balances, interest, or returns. Keep jars nonnegative and track debt separately. Add multiline Javadoc comments to model classes and members, including parameters and outcomes where relevant. No formatter or linter is configured yet; keep formatting consistent within each package.
+Usa cuatro espacios para la indentación de Java y un tipo público de nivel superior por archivo. Nombra las clases con `PascalCase`, los métodos y campos con `camelCase`, y las constantes con `UPPER_SNAKE_CASE`. Representa el dinero como pesos colombianos enteros; no uses `double` para saldos, intereses ni rendimientos. Mantén los frascos en valores no negativos y lleva las deudas por separado. Agrega comentarios Javadoc de varias líneas a las clases y miembros del modelo, incluidos parámetros y resultados cuando corresponda. Aún no hay un formateador ni un analizador estático configurados; conserva un formato uniforme dentro de cada paquete.
 
-## Testing Guidelines
+## Guía para las pruebas
 
-Use JUnit 5. Name test classes `*Test.java` and test methods after the rule and expected outcome, such as `rejectsAllocationAboveAllowance`. Cover normal behavior, boundaries, invalid decisions, debt installments, rounding, and an entire eight-week game with a fixed card order. No numeric coverage threshold is specified; tests must run without JavaFX.
+Usa JUnit 5. Nombra las clases de prueba como `*Test.java` y los métodos según la regla y el resultado esperado, por ejemplo, `rejectsAllocationAboveAllowance`. Cubre el comportamiento normal, los límites, las decisiones inválidas, las cuotas de deuda, el redondeo y una partida completa de ocho semanas con un orden fijo de tarjetas. No se ha definido un umbral numérico de cobertura; las pruebas deben ejecutarse sin JavaFX.
 
-## Commit & Pull Request Guidelines
+## Commits y solicitudes de cambios
 
-GitHub history contains `Initial commit` and documentation commits using a `docs:` prefix; it does not yet establish a convention for code. Use short imperative subjects with an area prefix, such as `model: Validate jar withdrawals`. Name work branches with Gitflow-style prefixes and the task ID, such as `feature/T04-jar-balances`, `bugfix/T08-installments`, or `release/second-submission`. Open one pull request per GitHub Project task, write its title and description in English, link its issue, describe the rule changed, and include the verification commands and results. Update `docs/rules.md` when behavior changes. Request review from another team member; screenshots are needed only for future interface changes.
+El historial de GitHub contiene `Initial commit` y commits de documentación con el prefijo `docs:`; todavía no define una convención para el código. Usa asuntos breves en modo imperativo y con un prefijo del área, por ejemplo, `model: Validate jar withdrawals`. Nombra las ramas con prefijos de estilo Gitflow y el ID de la tarea, por ejemplo, `feature/T04-jar-balances`, `bugfix/T08-installments` o `release/second-submission`. Abre una solicitud de cambios por cada tarea del tablero de GitHub Project, escribe su título y descripción en inglés, enlaza la incidencia, describe la regla modificada e incluye los comandos y resultados de verificación. Pide la revisión de otro integrante del equipo; solo se necesitan capturas para futuros cambios de interfaz.

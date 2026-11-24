@@ -1,21 +1,21 @@
 package org.mislucas.model.game;
 
 /**
- * Identifies each of the three jars in a game.
+ * Identifica cada uno de los tres frascos de una partida.
  */
 public enum JarType {
     /**
-     * Holds funds for spending.
+     * Guarda dinero para gastar.
      */
     SPENDING,
 
     /**
-     * Holds savings toward the player's goal.
+     * Guarda el ahorro para la meta del jugador.
      */
     GOAL,
 
     /**
-     * Holds the player's emergency reserve.
+     * Guarda la reserva para emergencias del jugador.
      */
     CUSHION
 }

@@ -1,9 +1,9 @@
-# Mis Lucas implementation context
+# Contexto de implementación de Mis Lucas
 
-This folder describes **the game to build**. The [GitHub Project](https://github.com/users/camarinb2096/projects/1) tracks the backlog and task status.
+Esta carpeta describe **el juego que se debe construir**. El [tablero de GitHub Project](https://github.com/users/camarinb2096/projects/1) registra las tareas pendientes y su estado.
 
-1. Read [game.md](game.md) for the game type, actor, and match flow.
-2. Use [rules.md](rules.md) when implementing or testing any calculation or event.
-3. Use [model.md](model.md) to keep domain responsibilities separate from the future JavaFX interface.
+1. Lee [game.md](game.md) para conocer el tipo de juego, el actor y el flujo de la partida.
+2. Consulta [rules.md](rules.md) al implementar o probar cualquier cálculo o evento.
+3. Usa [model.md](model.md) para mantener separadas las responsabilidades del dominio y la futura interfaz JavaFX.
 
-The course brief requires the second submission to include the model source code and all business logic, JUnit tests, multiline comments for class members, and generated Javadoc files. The instructor approved the initial proposal as viable. These documents combine that proposal with the team's D2–D8 decisions made on November 17, 2026.
+La guía del curso pide que la segunda entrega incluya el código fuente del modelo y toda la lógica de negocio, pruebas con JUnit, comentarios de varias líneas para los miembros de las clases y los archivos Javadoc generados. El profesor aprobó la propuesta inicial. Estos documentos combinan esa propuesta con las decisiones del equipo de las tareas D2–D8, tomadas el 17 de noviembre de 2026.

@@ -71,7 +71,7 @@ class IncomeAllocationTest {
 
     @Test
     void rejectsAllocationTotalAboveIntegerRangeWithoutChangingBalances() {
-        // The true total is COP 4,500,001,000, which wraps to the income as an int.
+        // El total real es COP 4.500.001.000; al convertirlo a int, el valor da la vuelta hasta coincidir con el ingreso.
         assertThrows(IllegalArgumentException.class, () ->
                 allocation.apply(new Money(205_033_704), new Money(1_500_000_000),
                         new Money(1_500_000_000), new Money(1_500_001_000)));

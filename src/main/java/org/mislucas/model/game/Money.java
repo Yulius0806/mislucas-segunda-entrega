@@ -1,16 +1,16 @@
 package org.mislucas.model.game;
 
 /**
- * An amount of money expressed in whole Colombian pesos.
+ * Cantidad de dinero expresada en pesos colombianos enteros.
  *
- * @param pesos the nonnegative number of Colombian pesos
+ * @param pesos cantidad no negativa de pesos colombianos
  */
 public record Money(int pesos) {
     /**
-     * Creates a monetary amount in whole Colombian pesos.
+     * Crea una cantidad monetaria expresada en pesos colombianos enteros.
      *
-     * @param pesos the number of Colombian pesos
-     * @throws IllegalArgumentException if the amount is negative
+     * @param pesos cantidad de pesos colombianos
+     * @throws IllegalArgumentException si la cantidad es negativa
      */
     public Money {
         if (pesos < 0) {

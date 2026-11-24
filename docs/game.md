@@ -1,28 +1,28 @@
-# Game type, actor, and flow
+# Tipo de juego, actor y flujo
 
-## Type and purpose
+## Tipo y propósito
 
-Mis Lucas is a **single-player educational turn-based simulation**. Each turn represents one week; a game lasts eight weeks. The player practices budgeting, distinguishing needs from wants, saving toward a goal, building an emergency reserve, and comparing the cost of financing an expense. Money and returns are fictional; the game does not represent a real bank account or credit card.
+Mis Lucas es una **simulación educativa por turnos para un solo jugador**. Cada turno representa una semana y la partida dura ocho semanas. El jugador practica cómo elaborar un presupuesto, distinguir entre necesidades y deseos, ahorrar para una meta, crear una reserva para emergencias y comparar el costo de financiar un gasto. El dinero y los rendimientos son ficticios; el juego no representa una cuenta bancaria ni una tarjeta de crédito real.
 
-The intended audience is teenagers aged 12 to 16 in Colombia. The third submission will add a JavaFX desktop interface. In the second submission, the Java model must work without a graphical interface.
+El público al que se dirige son adolescentes de 12 a 16 años en Colombia. La tercera entrega añadirá una interfaz de escritorio con JavaFX. En la segunda entrega, el modelo Java debe funcionar sin una interfaz gráfica.
 
-## Actor and system behavior
+## Actor y comportamiento del sistema
 
-| Role | Actions or responsibilities |
+| Rol | Acciones o responsabilidades |
 |---|---|
-| Player | Chooses a resource scenario and savings goal; allocates each income; decides whether to buy optional items; chooses one or two installments when mandatory expenses exceed available funds; reviews feedback and the final outcome. |
-| Game system | Grants allowances, shuffles and reveals cards, validates choices, charges expenses and installments, calculates returns, tracks debt, and determines the outcome and stars. |
+| Jugador | Elige un escenario de recursos y una meta de ahorro; distribuye cada ingreso; decide si compra artículos opcionales; elige una o dos cuotas cuando los gastos obligatorios superan los fondos disponibles; consulta la retroalimentación y el resultado final. |
+| Sistema del juego | Entrega las mesadas, mezcla y revela las tarjetas, valida las decisiones, cobra los gastos y las cuotas, calcula los rendimientos, lleva el registro de las deudas y determina el resultado y las estrellas. |
 
-The **player is the only external actor** in the game. The instructor and development team assess or build the project but do not participate in a game. There are no user accounts, multiplayer mode, or connections to financial services.
+El **jugador es el único actor externo** del juego. El profesor y el equipo de desarrollo evalúan o construyen el proyecto, pero no participan en una partida. No hay cuentas de usuario, modo multijugador ni conexiones con servicios financieros.
 
-## Game flow
+## Flujo del juego
 
-1. **Setup:** choose a resource scenario and savings goal. Normal difficulty uses an eight-card deck.
-2. **Weeks 1–8:** receive an allowance, allocate it among the Spending jar (*Para gastar*), Goal jar (*Mi meta*), and Cushion jar (*Colchón*); pay installments and expenses; resolve one card; and see an explanation. Opportunity income is allocated immediately. Returns are credited in weeks 4 and 8.
-3. **Outcome:** settle outstanding debt from the Goal jar, check whether the savings goal was met, and show jar balances, remaining debt, savings percentage, and stars.
+1. **Preparación:** elige un escenario de recursos y una meta de ahorro. La dificultad Normal usa un mazo de ocho tarjetas.
+2. **Semanas 1–8:** recibe una mesada y la distribuye entre los frascos Para gastar (*Spending*), Mi meta (*Goal*) y Colchón (*Cushion*); paga las cuotas y los gastos; resuelve una tarjeta y ve una explicación. Los ingresos por oportunidades se distribuyen de inmediato. Los rendimientos se abonan en las semanas 4 y 8.
+3. **Resultado:** salda la deuda pendiente con el frasco Mi meta, comprueba si alcanzó la meta de ahorro y muestra los saldos de los frascos, la deuda restante, el porcentaje de ahorro y las estrellas.
 
-The future interface has three planned screens: setup, weekly game, and outcome. The model owns the rules; visual controls only collect actions and display results.
+La futura interfaz tendrá tres pantallas previstas: preparación, partida semanal y resultado. El modelo contiene las reglas; los controles visuales solo recogen las acciones y muestran los resultados.
 
-## Scope of the second submission
+## Alcance de la segunda entrega
 
-Three scenarios, three goals, three jars, the Normal deck, payments, educational credit, returns, final outcome, JUnit tests, and Javadoc. Easy and Hard difficulties, more player profiles, saved games, and visual effects are outside this submission's minimum scope.
+Incluye tres escenarios, tres metas, tres frascos, el mazo Normal, pagos, crédito educativo, rendimientos, resultado final, pruebas con JUnit y Javadoc. Las dificultades Fácil y Difícil, más perfiles de jugador, las partidas guardadas y los efectos visuales quedan fuera del alcance mínimo de esta entrega.

@@ -1,40 +1,40 @@
-# Object-oriented model
+# Modelo orientado a objetos
 
-The second submission implements the game domain as **one Maven module using Java 21**, with JUnit 5 tests. Domain classes do not import JavaFX. The third submission's interface will call model operations and display their results.
+La segunda entrega implementa el dominio del juego en **un módulo Maven con Java 21** y pruebas con JUnit 5. Las clases del dominio no importan JavaFX. La interfaz de la tercera entrega invocará las operaciones del modelo y mostrará sus resultados.
 
-## Package structure
+## Estructura de paquetes
 
-The domain lives under `org.mislucas.model`. Domain tests use corresponding packages under `src/test/java`.
+El dominio está en `org.mislucas.model`. Las pruebas del dominio usan los paquetes correspondientes bajo `src/test/java`.
 
-| Subpackage | Responsibility |
+| Subpaquete | Responsabilidad |
 |---|---|
-| `config` | Game parameters, resource scenarios, and savings goals. |
-| `game` | Game state, turn progression, jars, and money. |
-| `events` | Cards and their effects. |
-| `rules` | Coordination of financial rules such as allocation, payments, and returns. |
-| `result` | The completed game's outcome and indicators. |
+| `config` | Parámetros del juego, escenarios de recursos y metas de ahorro. |
+| `game` | Estado del juego, avance de turnos, frascos y dinero. |
+| `events` | Tarjetas y sus efectos. |
+| `rules` | Coordinación de reglas financieras como distribución, pagos y rendimientos. |
+| `result` | Resultado e indicadores de la partida finalizada. |
 
-The third submission applies Model–View–Controller (MVC) to the JavaFX interface. Classes in `org.mislucas.controller` will translate player actions into model calls. Screens in `org.mislucas.view` will render the resulting state and feedback. The model owns the game rules and can run independently of JavaFX.
+La tercera entrega aplicará el patrón Modelo–Vista–Controlador (MVC) a la interfaz JavaFX. Las clases de `org.mislucas.controller` traducirán las acciones del jugador en llamadas al modelo. Las pantallas de `org.mislucas.view` mostrarán el estado y la retroalimentación. El modelo contiene las reglas del juego y puede ejecutarse independientemente de JavaFX.
 
-## Domain responsibilities
+## Responsabilidades del dominio
 
-| Element | Responsibility |
+| Elemento | Responsabilidad |
 |---|---|
-| `Scenario` and `Goal` | Provide the allowance, fixed expense, and selected goal price. |
-| `Jar` | Encapsulate a nonnegative balance and validate deposits and withdrawals. Each game has Spending, Goal, and Cushion jars. |
-| `Game` | Hold setup, current week and phase, jars, deck, received income, Goal jar usage, and final state. Reject actions out of order. |
-| `Card` and its types | Represent and resolve want, need, emergency, opportunity, and quiet-week events. Distinct effects justify polymorphism. |
-| `Debt` and `Installment` | Track financed shortfalls, payment choice, total interest, due weeks, and outstanding balance. |
-| `RulesEngine` | Coordinate allocation, payment priorities, installment collection, returns, and closing without depending on the interface. |
-| `GameResult` | Expose balances, remaining debt, net balance, victory, stars, and savings percentage. |
+| `Scenario` y `Goal` | Proporcionan la mesada, el gasto fijo y el precio de la meta elegida. |
+| `Jar` | Encapsula un saldo no negativo y valida los depósitos y retiros. Cada partida tiene frascos Para gastar, Mi meta y Colchón. |
+| `Game` | Mantiene la configuración, la semana y fase actuales, los frascos, el mazo, los ingresos recibidos, el uso del frasco Mi meta y el estado final. Rechaza acciones fuera de orden. |
+| `Card` y sus tipos | Representan y resuelven eventos de deseo, necesidad, emergencia, oportunidad y semana tranquila. Sus efectos distintos justifican el polimorfismo. |
+| `Debt` y `Installment` | Llevan el registro de faltantes financiados, la opción de pago, el interés total, las semanas de vencimiento y el saldo pendiente. |
+| `RulesEngine` | Coordina la distribución, las prioridades de pago, el cobro de cuotas, los rendimientos y el cierre sin depender de la interfaz. |
+| `GameResult` | Expone los saldos, la deuda pendiente, el saldo neto, la victoria, las estrellas y el porcentaje de ahorro. |
 
-The player is an actor, so no account or authentication class is needed.
+El jugador es un actor, así que no se necesita una clase de cuenta ni de autenticación.
 
-## Invariants and test seams
+## Invariantes y aspectos que se pueden probar
 
-- Store money as integer Colombian pesos; do not use `double` for balances, interest, or returns.
-- Jars cannot be negative. Debt is tracked separately.
-- Reject an invalid choice before changing state; a rejected allocation changes no jar.
-- Allow a fixed card order in tests. A normal game shuffles the deck once.
-- A complete eight-week game, including credit and outcome, must be testable without JavaFX.
-- Model classes and members need multiline documentation comments, and the required Javadoc files must be generated.
+- Representa el dinero con pesos colombianos enteros; no uses `double` para saldos, intereses ni rendimientos.
+- Los frascos no pueden tener saldos negativos. Las deudas se llevan por separado.
+- Rechaza una decisión inválida antes de cambiar el estado; una distribución rechazada no modifica ningún frasco.
+- Permite fijar el orden de las tarjetas en las pruebas. Una partida normal mezcla el mazo una sola vez.
+- Se debe poder probar una partida completa de ocho semanas, incluido el crédito y el resultado, sin JavaFX.
+- Las clases y los miembros del modelo necesitan comentarios de documentación de varias líneas; también se deben generar los archivos Javadoc requeridos.

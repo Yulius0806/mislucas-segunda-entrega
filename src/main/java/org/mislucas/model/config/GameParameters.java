@@ -1,11 +1,11 @@
 package org.mislucas.model.config;
 
 /**
- * Fixed parameters shared by the game model.
+ * Parámetros fijos que comparte el modelo del juego.
  */
 public final class GameParameters {
     /**
-     * Number of weeks in a complete game.
+     * Cantidad de semanas de una partida completa.
      */
     public static final int WEEKS_PER_GAME = 8;
 

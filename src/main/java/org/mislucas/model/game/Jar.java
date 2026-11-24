@@ -3,57 +3,57 @@ package org.mislucas.model.game;
 import java.util.Objects;
 
 /**
- * Holds the balance of a spending, goal, or cushion jar.
+ * Mantiene el saldo de un frasco Para gastar, Mi meta o Colchón.
  */
 public final class Jar {
     private final JarType type;
     private Money balance = new Money(0);
 
     /**
-     * Opens a jar with a balance of zero pesos.
+     * Crea un frasco con un saldo de cero pesos.
      *
-     * @param type the identity of the jar
-     * @throws NullPointerException if the type is null
+     * @param type tipo que identifica el frasco
+     * @throws NullPointerException si el tipo es nulo
      */
     public Jar(JarType type) {
         this.type = Objects.requireNonNull(type, "type");
     }
 
     /**
-     * Returns the identity of this jar.
+     * Devuelve el tipo de este frasco.
      *
-     * @return the jar type
+     * @return tipo del frasco
      */
     public JarType type() {
         return type;
     }
 
     /**
-     * Returns the current balance.
+     * Devuelve el saldo actual.
      *
-     * @return the balance in whole Colombian pesos
+     * @return saldo en pesos colombianos enteros
      */
     public Money balance() {
         return balance;
     }
 
     /**
-     * Adds the given amount to the balance.
+     * Suma la cantidad indicada al saldo.
      *
-     * @param amount the amount to deposit
-     * @throws NullPointerException if the amount is null
-     * @throws ArithmeticException if the resulting balance exceeds the integer range
+     * @param amount cantidad que se depositará
+     * @throws NullPointerException si la cantidad es nula
+     * @throws ArithmeticException si el saldo resultante supera el rango de enteros
      */
     public void deposit(Money amount) {
         balance = new Money(Math.addExact(balance.pesos(), amount.pesos()));
     }
 
     /**
-     * Subtracts the given amount from the balance.
+     * Resta la cantidad indicada del saldo.
      *
-     * @param amount the amount to withdraw
-     * @throws NullPointerException if the amount is null
-     * @throws IllegalArgumentException if the amount exceeds the available balance
+     * @param amount cantidad que se retirará
+     * @throws NullPointerException si la cantidad es nula
+     * @throws IllegalArgumentException si la cantidad supera el saldo disponible
      */
     public void withdraw(Money amount) {
         if (amount.pesos() > balance.pesos()) {

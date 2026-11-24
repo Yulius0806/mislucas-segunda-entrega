@@ -1,4 +1,4 @@
 /**
- * Financial rules and their coordination.
+ * Reglas financieras y su coordinación.
  */
 package org.mislucas.model.rules;
